@@ -9,6 +9,8 @@ class Favorites(db.Model):
     date_added = db.Column(db.Date, nullable=False)
 
     user = db.relationship('User', backref='favorites')
+    planet = db.relationship('Planet', back_populates='favorites')
+
     def serialize(self):
         return {
             "id": self.id,
